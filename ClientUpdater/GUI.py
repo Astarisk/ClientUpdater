@@ -1,12 +1,9 @@
 import wx
-from wx.lib.buttons import GenButton
 from wx import Button
-from wx import BitmapFromImage
 from wx import TextCtrl
-from wx import adv
-from Downloader import Downloader
+from ClientUpdater.Downloader import Downloader
+import ClientUpdater.Config
 import threading
-import Config
 import subprocess
 import wx.media
 
