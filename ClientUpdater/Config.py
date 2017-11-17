@@ -11,9 +11,9 @@ import os
 # OS variables
 homedir = os.path.expanduser('~')
 clientdir = homedir + '\TestClient\\bin\\'
-weburl = 'https://raw.githubusercontent.com/Astarisk/HafenUpdater/master/testfiles/'
+weburl = 'https://raw.githubusercontent.com/Astarisk/ClientUpdater/master/ClientUpdater/testfiles/'
 updaterdir = clientdir + "updater\\"
-manifesturl = 'https://raw.githubusercontent.com/Astarisk/HafenUpdater/master/testfiles/manifest.xml'
+manifesturl = 'https://raw.githubusercontent.com/Astarisk/ClientUpdater/master/ClientUpdater/testfiles/manifest.xml'
 
 # GUI variables
 # Enables / Disables authentication, hiding the pw and username fields.
@@ -40,6 +40,7 @@ def parseconfig():
         if (child.get("os") == os) | (child.get("os") is None):
             if (child.get("arch") == arch.lower()) | (child.get("arch") is None):
                 elements.append(Item(child.get("os"), child.get("arch"), child.get("link"), child.get("sha")))
+    print(str(elements))
     return elements
 
 

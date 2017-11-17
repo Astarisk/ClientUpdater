@@ -35,7 +35,7 @@ class GUI(wx.Frame):
         self.bindEvents()
 
     def bindEvents(self):
-        self.Bind(wx.EVT_BUTTON, self.onMaidPress, id=self.ID_MAID)
+        self.Bind(wx.EVT_BUTTON, self.onUpdatePress, id=self.ID_UPDATE)
         self.Bind(wx.EVT_BUTTON, self.onRunPress, id=self.ID_RUN)
         self.Bind(wx.EVT_COMBOBOX, self.onComboBox, id=self.ID_COMBO)
         self.Bind(wx.EVT_TEXT, self.OnKeyTypedPass)
