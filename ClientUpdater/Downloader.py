@@ -18,7 +18,7 @@ class Downloader:
 
     @staticmethod
     def checkForUpdate():
-        print("Checking for updates")
+        Config.logger.info("Checking for updates")
         elements = Config.parseconfig()
         for e in elements:
             Downloader.isFileUpdated(e.link, e.sha)
@@ -37,7 +37,7 @@ class Downloader:
         try:
             urlretrieve(Config.manifesturl, Config.clientdir + "manifest.xml")
         except HTTPError:
-            print("Failed to authenticate")
+            Config.logger.info("Failed to authenticate")
 
         if not os.path.isdir(Config.clientdir):
             os.makedirs(Config.clientdir)
@@ -54,7 +54,7 @@ class Downloader:
             try:
                 Downloader.isFileUpdated(Config.weburl + 'updater/background.jpg', Config.updaterdir)
             except HTTPError:
-                print("Failed to download background.")
+                Config.logger.info("Failed to download background.")
 
         #try:
             #Downloader.isFileUpdated(Config.weburl + 'updater/bgmusic.mp3', Config.updaterdir)
@@ -85,14 +85,14 @@ class Downloader:
         # If the file exists, and the sha is different than that in the manifest, update.
         if file.is_file():
             oldsha = Downloader.getSHA(Config.clientdir, filename)
-            print("filename: " + filename)
-            print("sha: " + sha)
-            print("oldsha: " + oldsha)
+            Config.logger.info("filename: " + filename)
+            Config.logger.info("sha: " + sha)
+            Config.logger.info("oldsha: " + oldsha)
             if oldsha != sha:
-                print("sha does not match, downloading...")
+                Config.logger.info("sha does not match, downloading...")
                 Downloader.downloadFile(filename)
         else:  # Else if the file doesn't exist at all, download it.
-            print("File does not exist, downloading it...")
+            Config.logger.info("File does not exist, downloading it...")
             Downloader.downloadFile(filename)
 
     # This is the old way of checking if a file needs updating based upon unix timestamps of the file on the server.
@@ -110,14 +110,14 @@ class Downloader:
         if urlunixtime == -1:
             return
 
-        print("Checking: " + link)
+            Config.logger.info("Checking: " + link)
 
         if file.is_file():
             fileunixtime = os.path.getmtime(dir + '\\' + filename)
             # See if the file on the server is newer
-            print(urlunixtime > fileunixtime)
-            print(urlunixtime)
-            print(fileunixtime)
+            Config.logger.info(urlunixtime > fileunixtime)
+            Config.logger.info(urlunixtime)
+            Config.logger.info(fileunixtime)
 
             if urlunixtime > fileunixtime:
                 Downloader.downloadFile(link, dir)
@@ -127,7 +127,7 @@ class Downloader:
 
     @staticmethod
     def downloadFile(filename):
-        print("Downloaded: " + filename)
+        Config.logger.info("Downloaded: " + filename)
         urlretrieve(Config.weburl + filename, Config.clientdir + '\\' + filename)
 
 

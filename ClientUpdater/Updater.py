@@ -1,5 +1,5 @@
-from GUI import GUI
 import wx
+from GUI import GUI
 
 if __name__ == "__main__":
     app = wx.App(False)

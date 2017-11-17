@@ -3,10 +3,14 @@ from xml.etree import ElementTree
 import platform
 from pathlib import Path
 import os
+import logging
 
 # Parses the config file grabbing the download links needed based on architecture and os.
 # Hopefully this works, Don't have all the machines needed to test this thoroughly
 
+# Logging set up
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # OS variables
 homedir = os.path.expanduser('~')
@@ -40,7 +44,7 @@ def parseconfig():
         if (child.get("os") == os) | (child.get("os") is None):
             if (child.get("arch") == arch.lower()) | (child.get("arch") is None):
                 elements.append(Item(child.get("os"), child.get("arch"), child.get("link"), child.get("sha")))
-    print(str(elements))
+    logger.info(str(elements))
     return elements
 
 
@@ -53,7 +57,7 @@ def savepassword(pw):
 
 # Retrieves the saved password.
 def getpassword():
-    print(clientdir + "pwfile")
+    logger.info(clientdir + "pwfile")
     pwfile = Path(clientdir + "pwfile")
 
     if pwfile.is_file():
@@ -71,7 +75,7 @@ def saveusername(pw):
 
 # Retrieves the saved username.
 def getusername():
-    print(clientdir + "usernamefile")
+    logger.info(clientdir + "usernamefile")
     usernamefile = Path(clientdir + "usernamefile")
 
     if usernamefile.is_file():

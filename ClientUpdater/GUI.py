@@ -21,6 +21,7 @@ class GUI(wx.Frame):
     ID_USERNAME = 7
 
     def __init__(self, parent, id, title):
+        # Creating the base frame for the game.
         wx.Frame.__init__(self, parent, id, title)
         self.SetSize((550, 647))
         self.SetSizeHints(550, 647, 550, 647)
@@ -29,6 +30,8 @@ class GUI(wx.Frame):
         self.worker = None
         self.pw = Config.getpassword()
         self.username = Config.getusername()
+
+        # Initializing the download of the manifest file.
         Downloader.initialize()
 
         self.InitUI()
@@ -97,7 +100,7 @@ class GUI(wx.Frame):
         self.Fit()
 
     def onUpdatePress(self, e):
-        print("Updating...")
+        Config.logger.info("Updating...")
         # Not quite sure why I need to use this callback instead of just using checkForUpdater as target
 
         # Save the username + password, If these authorization boolean is enabled
@@ -111,15 +114,15 @@ class GUI(wx.Frame):
             self.worker = None
             #wx.CallAfter(self.stopGif)
         if not self.worker:
-            print("Starting...")
+            Config.logger.info("Starting...")
             #self.playGif()
             self.worker = threading.Thread(target=callback)
             self.worker.start()
         else:
-            print("Already started")
+            Config.logger.info("Already started")
 
     def onRunPress(self, e):
-        print("Run")
+        Config.logger.info("Run")
         heap = self.sizes[self.comboBox.GetSelection()].split()
 
         def callback():
