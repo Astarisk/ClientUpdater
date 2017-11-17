@@ -1,0 +1,24 @@
+<root>
+	<item arch="x86" link="windows.txt" os="Windows" sha="ab378b80a8a4aafabac7db7ae169f25796e65994" />
+	
+	<item arch="amd64" link="windows.txt" os="Windows" sha="ab378b80a8a4aafabac7db7ae169f25796e65994" />
+		
+	<item arch="x86_64" link="windows.txt" os="Windows" sha="ab378b80a8a4aafabac7db7ae169f25796e65994" />
+
+	
+	<item arch="i386" link="linux.txt" os="Linux" sha="ba324ca7b1c77fc20bb970d5aff6eea9377918a5" />
+	
+	<item arch="x86" link="linux.txt" os="Linux" sha="ba324ca7b1c77fc20bb970d5aff6eea9377918a5" />
+	
+	<item arch="amd64" link="linux.txt" os="Linux" sha="ba324ca7b1c77fc20bb970d5aff6eea9377918a5" />
+	
+	<item arch="x86_64" link="linux.txt" os="Linux" sha="ba324ca7b1c77fc20bb970d5aff6eea9377918a5" />
+	
+	
+	<item arch="i386" link="mac.txt" os="Mac OS X" sha="347ead6348e936507920c15d2ae8266ac6ce9b49" />
+	
+	<item arch="ppc" link="mac.txt" os="Mac OS X" sha="347ead6348e936507920c15d2ae8266ac6ce9b49" />
+	
+	<item arch="x86_64" link="mac.txt" os="Mac OS X" sha="347ead6348e936507920c15d2ae8266ac6ce9b49" />
+
+<item link="Goodbye.txt" sha="76a6d8c804a939834cdcf3c0ae49c23305c2d736" /><item link="Hello.txt" sha="0a0a9f2a6772942557ab5355d76af442f8f65e01" /><item link="Ipsum.txt" sha="c8c398085954146953ed488b57ac84985f0bd781" /><item link="manifest.xml" sha="2480df54aa1070cc3003bb09c6824848215d165e" /><item link="SimpleDemo.jar" sha="cf30b7bb2bdc9989ebd45b644733a3f3bd585866" /></root>
