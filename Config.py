@@ -2,6 +2,7 @@ import xml
 import os
 import logging
 import platform
+import xml.etree.ElementTree
 from pathlib import Path
 
 
@@ -15,9 +16,9 @@ logger = logging.getLogger(__name__)
 # OS variables
 homedir = os.path.expanduser('~')
 clientdir = homedir + '\TestClient\\bin\\'
-weburl = 'https://raw.githubusercontent.com/Astarisk/ClientUpdater/master/ClientUpdater/testfiles/'
+weburl = 'https://raw.githubusercontent.com/Astarisk/ClientUpdater/master/testfiles/'
 updaterdir = clientdir + "updater\\"
-manifesturl = 'https://raw.githubusercontent.com/Astarisk/ClientUpdater/master/ClientUpdater/testfiles/manifest.xml'
+manifesturl = 'https://raw.githubusercontent.com/Astarisk/ClientUpdater/master/testfiles/manifest.xml'
 
 # GUI variables
 # Enables / Disables authentication, hiding the pw and username fields.

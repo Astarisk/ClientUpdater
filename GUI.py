@@ -2,6 +2,7 @@ import subprocess
 import threading
 import wx
 import wx.media
+import Config
 
 from wx import Button
 from wx import TextCtrl
