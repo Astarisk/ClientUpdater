@@ -1,4 +1,5 @@
 # ClientUpdater
+MY first real python project.
 
 This project is a simple client updater based upon manifest files. The utils folder contains a script I use to generate the manifest file, ManifestGenerator.py. The ManifestGenerator also requires you to set the sftp variables. This is so you can connect to your own sftp server, and have the files automatically uploaded to the server. You would need to point the filedir variable in in ManifestGenerator towards the folder that contains the files you wish to generate a manifest for. You can read the variables at the top of this file for more documentation.
 
